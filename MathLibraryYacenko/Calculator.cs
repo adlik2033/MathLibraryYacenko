@@ -51,13 +51,38 @@ namespace MathLibraryYacenko
             }
             return sum;
         }
-
-        // 2x2 + 2xy + 3y2
-        public static void SolveQuadratic(double x, double y, double z, out double? x1, out double? x2)
+        public static void SolveQuadratic(double a, double b, double c, out double? x1, out double? x2)
         {
-            double d = Math.Pow(y, 2) + (4*x*y);
-            x1 = (-y + Math.Sqrt(d))/2*x;
-            x2 = (-y - Math.Sqrt(d)) / 2 * x;
+            double discriminant = b * b - 4 * a * c;
+            if (a == 0)
+            {
+                if (b != 0)
+                {
+                    x1 = -c / b;
+                    x2 = null;
+                }
+                else
+                {
+                    x1 = null;
+                    x2 = null;
+                }
+                return;
+            }
+            if (discriminant > 0)
+            {
+                x1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+                x2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+            }
+            else if (discriminant == 0)
+            {
+                x1 = -b / (2 * a);
+                x2 = null;
+            }
+            else
+            {
+                x1 = null;
+                x2 = null;
+            }
         }
         public static bool IsPrime(int number)
         {

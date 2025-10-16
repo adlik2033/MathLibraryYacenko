@@ -43,3 +43,15 @@ Console.WriteLine(Calculator.Factorial(q));
 
 Console.Write($"Факториал {q} = ");
 Console.WriteLine(Calculator.Factorial(q));
+
+double? x1, x2;
+Calculator.SolveQuadratic(1, -4, 4, out x1, out x2);
+Console.WriteLine($"\nУравнение: x² - 4x + 4 = 0");
+Console.WriteLine($"Корни: x1 = {x1}, x2 = {x2}");
+// Вывод: Корни: x1 = 2, x2 = null
+
+
+Calculator.SolveQuadratic(1, -3, 2, out x1, out x2);
+Console.WriteLine($"Уравнение: x² - 3x + 2 = 0");
+Console.WriteLine($"Корни: x1 = {x1}, x2 = {x2}");
+// Вывод: Корни: x1 = 2, x2 = 1
